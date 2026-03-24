@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0e0e10;
+            --surface: #1a1a1e;
+            --border: #2e2e34;
+            --accent: #e8ff47;
+            --text: #f0f0f0;
+            --muted: #888;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        thead {
+            background: #0e0e10;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tbody tr {
+            border-top: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(232, 255, 71, 0.03);
+        }
+
+        td {
+            padding: 1.2rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        td:first-child {
+            color: var(--accent);
+            font-weight: 600;
+        }
+           .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.25rem;
+            color: var(--muted);
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+         
+        .btn
+        {
+            background-color: greenyellow;
+            padding: 10px;
+            border-radius:10px;
+            border: none;
+            transition: all 0.4s ease-in-out ;
+        }
+
+        .btn:hover
+        {
+            transform: translateY(-5px);
+        }
+
+        .DU-container
+        {
+            display: flex;
+            margin: 5px;
+            gap: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    
+     <a href="/" class="back-link">← Back to Home</a>
+    <div class="container">
+        <h1>Caps</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr no.</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.forEach((item) => { %>
+                <tr>
+                   
+                    <td><%= item.item_id %></td>
+                    <td><%= item.item_name %></td>
+                    <td><%= item.quantity %></td>
+                    <td>
+                        <div class="DU-container">
+                        <form action="/items/<%=item.item_id%>/delete" method="post">
+                            <button class="btn delete-btn" type="submit">Delete Item</button>
+                        </form>
+                        <form action="/items/<%=item.item_id%>/edit" method="post">
+                             <button class="btn Update-btn" type="submit">Update Item</button>
+                        </form>
+                        </div>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+   
+    
+</body>
+</html>

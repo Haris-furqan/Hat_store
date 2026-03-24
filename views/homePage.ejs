@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0e0e10;
+            --surface: #1a1a1e;
+            --border: #2e2e34;
+            --accent: #e8ff47;
+            --text: #f0f0f0;
+            --muted: #888;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.4rem;
+        }
+
+        p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0e0e10;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #f5ff7a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(232, 255, 71, 0.25);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: #555;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hat Inventory</h1>
+        <p>Manage your Hats below</p>
+        <div class="btn-group">
+            <a href="/items/add" class="btn btn-primary">+ Add Hat</a>
+            <a href="/category/add" class="btn btn-primary">+ Add Category</a>
+
+            <a href="/items" class="btn btn-secondary">View Hat</a>
+        </div>
+    </div>
+</body>
+</html>
