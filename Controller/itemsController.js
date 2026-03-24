@@ -1,5 +1,5 @@
 const { name } = require("ejs");
-const {getAllItems,getSpecificItems,getAllCategories,addItems,removeItems,editItem} = require("../db/queries")
+const {getAllItems,getSpecificItems,getAllCategories,addItems,removeItems,editItem,getAllItemsWithCategories} = require("../db/queries")
 const {validationResult} = require("express-validator")
 
 async function removeItem(req,res) {
@@ -9,7 +9,7 @@ async function removeItem(req,res) {
 }
 async function getItems(req,res)
 {
-    const rows = await getAllItems()
+    const rows = await getAllItemsWithCategories()
     rows.forEach(row=>
     {
         row.UpdateForm = false;
@@ -18,6 +18,7 @@ async function getItems(req,res)
     res.render('items',{items:rows,removeItem:removeItem});
     console.log(getAllItems());
 }
+
 
 async function addItemsGet(req,res)
 {

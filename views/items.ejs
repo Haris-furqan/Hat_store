@@ -122,15 +122,18 @@
                     <th>Sr no.</th>
                     <th>Name</th>
                     <th>Quantity</th>
+                    <th>Category</th>
                 </tr>
             </thead>
             <tbody>
                 <% items.forEach((item) => { %>
                 <tr>
                    
-                    <td><%= item.item_id %></td>
-                    <td><%= item.item_name %></td>
-                    <td><%= item.quantity %></td>
+                    <td><%= item.item_id%></td>
+                    <td><%= item.item_name%></td>
+                    <td><%= item.quantity%></td>
+                    <td><%= item.category_name%></td>
+
                     <td>
                         <div class="DU-container">
                         <form action="/items/<%=item.item_id%>/delete" method="post">

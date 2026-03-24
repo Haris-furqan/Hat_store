@@ -134,8 +134,8 @@
             <div class="field">
                 <label for="category">Category</label>
                 <select name="category" id="category">
-                    <%category.forEach((element,index)=>{%>
-                        <option value=`${index}`><%=element.category_name%></option>
+                    <%category.forEach((element)=>{%>
+                        <option value=<%=element.category_id%>><%=element.category_name%></option>
                     <%})%>
                 </select>
             </div>

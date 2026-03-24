@@ -3,7 +3,11 @@ const pool = require("./db");
 async function getAllItems()
 {
     const {rows} = await pool.query("SELECT * FROM items");
-    console.log("from db");
+    return rows;
+}
+
+async function getAllItemsWithCategories() {
+    const {rows} = await pool.query("SELECT * FROM ITEMS JOIN CATEGORY ON ITEMS.CATEGORY_ID=CATEGORY.CATEGORY_ID")
     return rows;
 }
 
@@ -42,4 +46,4 @@ async function getAllCategories()
 }
 
 
-module.exports = {getAllCategories,getAllItems,addItems,addCategory,removeItems,getSpecificItems,editItem}
+module.exports = {getAllCategories,getAllItems,addItems,addCategory,removeItems,getSpecificItems,editItem,getAllItemsWithCategories}
