@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const itemRouter = require("./Routes/itemRouter")
 const {categoryRouter} = require("./Routes/categoryRouter")
+require('dotenv').config();
 app.use(express.urlencoded({ extended: true }));
 
 const path = require('path');
@@ -14,7 +15,7 @@ app.get('/', (req, res) => {
 });
 app.use('/items',itemRouter);
 app.use('/category',categoryRouter)
-const PORT = 8000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
 if(err)
 {
